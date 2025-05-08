@@ -1,0 +1,17 @@
+public class FourWheeler extends ParkingSlot{
+    @Override
+    public double getPrice() {
+        return price;
+    }
+
+    @Override
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    double price = super.price+10;
+
+    public FourWheeler() {
+        super.isEmpty = true;
+    }
+}
