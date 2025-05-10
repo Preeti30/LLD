@@ -1,0 +1,18 @@
+package org.example.models;
+
+
+import org.example.strategy.PaymentMode;
+
+public class Payment {
+
+   PaymentMode paymentMode;
+
+   Payment(PaymentMode paymentMode){
+       this.paymentMode = paymentMode;
+   }
+
+    public boolean makePayment(){
+        return paymentMode.makePayment();
+    }
+
+}
