@@ -13,7 +13,7 @@ public class Queen  extends Piece {
         int rowDiff = desRow - row;
         int colDiff = desCol - col;
 
-        if ((row==desRow || col==colDiff || Math.abs(rowDiff) == Math.abs(colDiff))){
+        if ((row==desRow || col==desCol || Math.abs(rowDiff) == Math.abs(colDiff))){
                 int rowStep = Integer.compare(desRow, row);
                 int colStep = Integer.compare(desCol, col);
 
