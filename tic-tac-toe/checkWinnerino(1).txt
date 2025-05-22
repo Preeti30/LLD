@@ -1,0 +1,51 @@
+//find winner in O(1)
+
+public class TicTacToe {
+    private int[] rows;
+    private int[] cols;
+    private int diagSum;
+    private int revDiagSum;
+    private int n;
+
+    public TicTacToe(int n) {
+        this.n = n;
+        this.rows = new int[n];
+        this.cols = new int[n];
+        this.diagSum = 0;
+        this.revDiagSum = 0;
+    }
+
+    /**
+     * Player makes a move at (row, col)
+     * @param row the row index
+     * @param col the column index
+     * @param player the player number (0 or 1)
+     * @return the winner (0 or 1) if someone wins, or -1 otherwise
+     */
+    public int move(int row, int col, int player) {
+        int playerMark = player == 0 ? -1 : 1;
+
+        // Update row and column counts
+        rows[row] += playerMark;
+        cols[col] += playerMark;
+
+        // Update diagonals if applicable
+        if (row == col) {
+            diagSum += playerMark;
+        }
+        if (row + col == n - 1) {
+            revDiagSum += playerMark;
+        }
+
+        // Check if this move caused a win
+        if (Math.abs(rows[row]) == n ||
+            Math.abs(cols[col]) == n ||
+            Math.abs(diagSum) == n ||
+            Math.abs(revDiagSum) == n) {
+            return player;
+        }
+
+        // No one won yet
+        return -1;
+    }
+}
